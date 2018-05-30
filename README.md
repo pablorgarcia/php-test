@@ -1,7 +1,7 @@
 # php-test
 
-#### String a pelo desde PHP.
-#### Declarando variables y mostrando su valor.
-#### El cuadrado de números con un for.
-#### Multiplicar los 10 primeros números naturales con un while.
-#### Gestionando peticiones GET. Operar con el valor que le demos a la query GET.
+#### String direct from PHP.
+#### Declaring variables and showing their value.
+#### The square of numbers with a for.
+#### Multiply the first 10 natural numbers with a while.
+#### Managing GET requests. Operate with the value that we give to the query GET.
