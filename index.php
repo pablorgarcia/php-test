@@ -11,6 +11,7 @@ h1 { font-family: monospace; font-size: 2.2vw; line-height: 2.2vh; color: #1a8cc
 p { color: #83982e; }
 b { color: #e12f34; }
 i { color: #b7882a; }
+a { color: rgb(10, 160, 151); }
 </style>
 </head>
 <body>
@@ -53,6 +54,8 @@ while ($counter <= $ten) {
 
 <p>Managing GET requests:</p>
 <p>Operate with the value that we give to the query GET [number]:</p>
+<a href="?number=9">?number=9</a>
+<a href="?number=12">?number=12</a>
 <?php
 if (isset($_GET["number"]) && is_numeric($_GET["number"])) {
   $numGET = $_GET["number"]; }
@@ -63,6 +66,69 @@ else {
 for ($c = 0; $c < $diez; $c++) { 
   echo "<p>".$c." * <i>".$numGET."</i> = <b>".$c*$numGET."</b></p>";
 }
+?>
+
+<p>Using a count() function and forEach loop:</p>
+<?php
+$months = array("Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec");
+for ($m=0; $m < count($months); $m++) {
+  echo "<i>".$months[m]."</i>";
+}
+echo "<p>Number of all elements inside of Array months: <b>".count($months)."</b></p>";
+echo "<p>The same with forEach:</p>";
+foreach ($months as $month) {
+  echo "<p>".$month."</p>";
+}
+?>
+
+<?php
+$factorial = 1;
+$numToFact = 5;
+?>
+<p>Calculating the factorial number of <?php echo $numToFact ?>:</p>
+<?php
+for ($h = 0; $h < $numToFact; $h++) { 
+  if (($h + 1) === $numToFact) {
+    $factorial *= $numToFact;
+    echo "<b>Result = ".$factorial."</b>"; }
+  else {
+    $factorial *= $numToFact;
+    echo "<i>".$factorial."</i>"; }
+}
+?>
+
+<p>Sort and rsort functions:</p>
+<p>Numbers from array:</p>
+<?php
+$arrToSort = array(50, 33, 6, 99, 21);
+foreach ($arrToSort as $numSorted) { echo "<p>".$numSorted."</p>"; }
+?>
+<p>Numbers sorted:</p>
+<?php
+sort($arrToSort);
+foreach ($arrToSort as $numSorted) { echo "<b>".$numSorted."</b>"; }
+?>
+?>
+<p>Numbers rsorted:</p>
+<?php
+rsort($arrToSort);
+foreach ($arrToSort as $numSorted) { echo "<i>".$numSorted."</i>"; }
+?>
+
+<p>array_search() function:</p>
+<?php
+if (!array_search($ten, $arrToSort)) {
+  echo "<p><b>".$ten."</b> does not exist within the previous array.</p>"; }
+else { echo "<p><b>".$ten."</b> exists in the previous array.</p>"; }
+?>
+
+<p>Whats my IP and Am I browsing with Firefox?:</p>
+<?php
+$ip = $_SERVER["REMOTE_ADDR"];
+$browser = $_SERVER["HTTP_USER_AGENT"];
+echo "<p>Your IP: <i>".$ip."</i></p>";
+if (strstr($browser == "Firefox")) { echo "<p>Your are in Firefox</p>"; }
+else { echo "<p>Your are not in Firefox</p>"; }
 ?>
 
 </body>
